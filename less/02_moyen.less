@@ -1,25 +1,59 @@
+/* Un premier media query pour le logo - apparaît en mode paysage sur les mobiles */
 
-	header img {
-		/* À compléter - Dimension maximale de l'image en largeur:350px*/
-		max-width: 350px;
-	}
-	.menu ul {
-		/*À compléter - L'affichage des éléments du menu de navigation est maintenant en ligne... et justifié avec un espace à gauche et à droite*/
-		flex-direction: row;
-		justify-content: space-around;
-	}
-	.menu ul li {
-		/*À compléter - On enlève la bordure supérieure et inférieure sur les éléments*/
-		border:none;
-	}
-	main section {
-		/*À compléter - Les éléments de chaque section sont maintenant affichés en ligne*/
-		flex-direction: row;
-		flex-wrap: nowrap;
-		justify-content: flex-start;
-	}
 
-	footer {
-		/*À compléter - Les éléments du pied de page sont maintenant répartis dans l'espace avec une marge à gauche et à droite*/
-		justify-content: space-around;
-	}
+header{
+
+  img{
+      /* width : 352px; dimension de l'image */
+       width : 352px; /* dimension de l'image */
+      }
+  nav {
+      ul{
+      	display:flex;
+        flex-direction: row;
+        justify-content : space-around;
+        border:none;
+        li {
+	      	display:flex;
+	        flex-direction: row;
+	        justify-content : space-around;
+          border:none;
+        &:first-child {
+            border-top: none;  
+         }   
+          a{
+
+            }
+           a:hover{
+           } 
+          } // fin li
+        } // fin ul
+      } // fin nav
+    } // fin header  
+
+
+    main{
+
+    section{
+        flex-direction : row;
+        flex-wrap : nowrap;
+        justify-content : flex-start;
+       
+      article{
+
+      }
+
+    }
+}
+
+
+footer{
+  justify-content:space-around;
+}
+
+footer div{
+
+
+}
+footer div i{
+}

@@ -1,116 +1,148 @@
-/* NOTE pour le debogage on peut mettre une bordure autour de certains des éléments 
+/* Variable */
+
+@largeur_article : 250px;
+@couleur-icone : #f9d42a;
+@couleur-lienMenu : #fff;
+@couleur-base       : #e3d47f;
+@couleur-complementaire : spin(@couleur-base, 180);
+// @couleur-contrast : contrast(@couleur-base);
+@couleur-contrast : contrast(@couleur-base);
+
+
+@triadic-1 : spin(@couleur-base , -(360 / 3));
+@triadic-2 : spin(@couleur-base , (360 / 3));
+
+
+@couleur-1 : saturate(@couleur-complementaire, 10%);
+@couleur-2 : desaturate(@couleur-complementaire, 10%);
+@couleur-3 : desaturate(@couleur-complementaire, 20%);
+@couleur-4 : saturate(@couleur-complementaire, 30%);
+@couleur-5 : desaturate(@couleur-complementaire, 40%);
+@couleur-6 : desaturate(@couleur-complementaire, 50%);
+@couleur-7 : desaturate(@couleur-complementaire, 60%);
+
+
+
+@couleur-8  : mix(@couleur-base, @triadic-1);
+@couleur-9  : mix(@couleur-base, @triadic-2);
+@couleur-10 : mix(@couleur-base, @couleur-complementaire);
+
+
+
+/* pour le debuggage on met une bordure autour de chacun des éléments 
+
 * {border: 1px solid #aaa;}
 */
 
 
-/*body et général*/
-	body {
-		font-family: helvetica, arial, serif;
-		display: flex;
-		flex-direction: column; 
-	}
-
-	li {
-		list-style: none;
-	}
-
-	i {  color: #f8c700;}
 
 
-/*Entête - header */
-	header {
-		width:100%;
-		background-color: #000000;
-		padding: 5px;
-		/*À compléter - Les éléments de l'entête sont affichés en colonne*/
-		display: flex;
-		flex-direction: column;
-	}
 
 
-	header img {
-		max-width: 100%;
-	}
 
-/*Menu et éléments inclus*/
-	.menu ul {
-		width:100%;
-		padding: 3px;
-		/*À compléter - L'affichage du menu est en colonne*/
-		display:flex;
-		flex-direction:column;
-	}
+body{
+  display : flex;
+  flex-direction: column;
+  font-family: arial;
+}
 
-	.menu ul li {
-		display: flex;
-		/*À compléter - Les éléments li du menu ont une bordure supérieure et inférieure de 1px en point et de couleur orange: #f8c700*/
-		border-top: 1px dotted #f8c700;
-		border-bottom: 1px dotted #f8c700;				
-	}
+header, footer {
+    background-color : @couleur-contrast ;
+}
+header{
+  display: flex;
+  flex-direction:column;
+  padding:5px;
+  
+  img{
+      /* width : 352px; dimension de l'image */
+      width : 100%;
+      }
+  nav {
+      ul{
+        list-style-type: none;
+        padding: 3px;
 
-	.menu ul li a {
-		color: #fff;
-		text-decoration: none;
-		font-size: 1.5em;
-		padding: 3px;
-		/*À compléter - Tous les éléments HTML de type a du menu peuvent s'étirer*/
-		flex:1 1 auto;
-	}
+        li {
+            display:flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            border-bottom: 1px dotted @couleur-icone;
+          &:first-child {
+            border-top: 1px dotted @couleur-icone;
+          }  
+          a{
+              display : block;
+              color : #fff;
+              text-decoration : none;
+              font-size: 150%;
+              padding: 3px;
+              color : @couleur-lienMenu;
+              flex:1;
+              transition : background-color 1s;
+            }
+            i{
+              color : @couleur-icone;
+              margin-left: 10px;
+              margin-right: 10px;
 
-	.menu ul li a:hover {
-		background-color: #aaa;
-	}
+            }
+           a:hover{
+            background-color: #aaa;
+           } 
+          } // fin li
+        } // fin ul
+      } // fin nav
+    } // fin header  
 
-/*main*/
-	main {
-		display: flex;
-		flex-direction: column;
-	}
+main{
+    display:flex;
+    flex-direction:column;
+    section{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      article{
+        display:flex;
+        justify-content:center;
+        width:100%;
+        align-items: center;
+        height : @largeur_article;
+       // border: 1px solid #aaa;
+        font-size: @largeur_article;
+      }
 
-	main section {
-		/*À compléter - Les sections sont des conteneurs flex dont le contenu s'affiche en colonne et sont alignés au centre selon les deux axes: principal et secondaire*/
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
+      &.premier {
+          article:nth-child(1) {background-color: @couleur-base;}
+          article:nth-child(2) {background-color: @triadic-1;}
+          article:nth-child(3) {background-color: @triadic-2;}
+      }
+      &.deuxieme {
+          article:nth-child(1) {background-color: @couleur-8;}
+          article:nth-child(2) {background-color: @couleur-9;}
+          article:nth-child(3) {background-color: @couleur-10;}
+      }
+    }
+}
 
-	main section article {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		height: 250px;
-		font-size: 15em;
-	}
+footer{
+  height: 70px;
+  display : flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items : center;
+}
 
-	/*La couleur des articles des sections*/
-	main section.premiereSection article:nth-child(1) {
-		background-color: #e3d47f;
-	}
-	main section.premiereSection article:nth-child(2) {
-		background-color: #d47fe3;
-	}
-	main section.premiereSection article:nth-child(3) {
-		background-color: #7fe3d4;
-	}
-	main section.deuxiemeSection article:nth-child(1) {
-		background-color: #dbaab1;
-	}
-	main section.deuxiemeSection article:nth-child(2) {
-		background-color: #b1dca9;
-	}
-	main section.deuxiemeSection article:nth-child(3) {
-		background-color: #b1b1b1;
-	}
+footer div{
+ width : 30px;
 
-/*Pied de page  - footer*/
-	footer {
-		background-color:#212121;
-		display:flex;
-		/*À compléter - Les icônes du pied de page sont alignés au centre*/
-		justify-content: center;
-	}
+}
+footer div i{
+   color : @couleur-icone ;
+   transition : color 1s;
+}
+footer div i:hover{
+   color : @couleur-complementaire;
+}
 
-	footer div {
-		padding:10px;
-	}

@@ -1,34 +1,31 @@
-	header {
-		/*À compléter - Tous les éléments de l'entête sont affichés en ligne et répartis dans l'espace et alignés au centre de l'axe principal*/
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-	}
+header{
+      flex-direction:row;
+      justify-content : space-between;
+      align-items:center;
 
-	header img {
-		/* À compléter - Dimension maximale de l'image en largeur:350px*/
-		max-width: 350px;
-	}
+    img {
+          display: block;
+        }
+    nav {
+          display : flex;
+          flex:1;
+        ul{
+          display:flex;
+          flex:1;
+          flex-direction: row;
+          justify-content : space-around;
+          li {
 
-	.menu {
-		/*À compléter - Le menu de navigation, en tant qu'item-flex, va s'étirer pour prendre tout l'espace restant disponible*/
-		flex: 2 1 auto;
-	}
+            a{
 
+              }
+             a:hover{
+             } 
+            } // fin li
+          } // fin ul
+        } // fin nav
+    } // fin header  
 
-	.menu ul {
-		/*À compléter - L'affichage du menu de navigation est maintenant en ligne... et justifié*/
-		flex-direction: row;
-		justify-content: space-around;
-	}
-
-	footer {
-		/*À compléter - Les éléments du pied de page sont répartis dans l'espace et alignés au centre sur l'axe secondaire*/
-		justify-content: space-around;
-		align-items: center;
-	}
-
-	/*À compléter - Le troisième élément du pied de page a une taille de 3em*/
-	footer div:nth-child(3){		
-		font-size:3em;
-	}
+    footer div:nth-child(3) {
+      font-size: 3em;
+}
