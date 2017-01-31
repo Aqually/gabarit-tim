@@ -1,3 +1,5 @@
+// main: style.less
+
 /* Variable */
 
 @largeur_article : 250px;
@@ -29,7 +31,7 @@
 
 
 
-/* pour le debuggage on met une bordure autour de chacun des éléments 
+/* pour le debuggage on met une bordure autour de chacun des éléments
 
 * {border: 1px solid #aaa;}
 */
@@ -53,7 +55,7 @@ header{
   display: flex;
   flex-direction:column;
   padding:5px;
-  
+
   img{
       /* width : 352px; dimension de l'image */
       width : 100%;
@@ -70,7 +72,7 @@ header{
             border-bottom: 1px dotted @couleur-icone;
           &:first-child {
             border-top: 1px dotted @couleur-icone;
-          }  
+          }
           a{
               display : block;
               color : #fff;
@@ -89,11 +91,11 @@ header{
             }
            a:hover{
             background-color: #aaa;
-           } 
+           }
           } // fin li
         } // fin ul
       } // fin nav
-    } // fin header  
+    } // fin header
 
 main{
     display:flex;
@@ -145,4 +147,3 @@ footer div i{
 footer div i:hover{
    color : @couleur-complementaire;
 }
-
