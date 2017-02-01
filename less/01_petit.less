@@ -7,18 +7,11 @@
 @couleur-base: #e3d47f;
 @couleur-complementaire: spin(@couleur-base, 180); // @couleur-contrast : contrast(@couleur-base);
 @couleur-contrast: contrast(@couleur-base);
-@triadic-1: spin(@couleur-base , -(360 / 3));
-@triadic-2: spin(@couleur-base , (360 / 3));
-@couleur-1: saturate(@couleur-complementaire, 10%);
-@couleur-2: desaturate(@couleur-complementaire, 10%);
-@couleur-3: desaturate(@couleur-complementaire, 20%);
-@couleur-4: saturate(@couleur-complementaire, 30%);
-@couleur-5: desaturate(@couleur-complementaire, 40%);
-@couleur-6: desaturate(@couleur-complementaire, 50%);
-@couleur-7: desaturate(@couleur-complementaire, 60%);
-@couleur-8: mix(@couleur-base, @triadic-1);
-@couleur-9: mix(@couleur-base, @triadic-2);
-@couleur-10: mix(@couleur-base, @couleur-complementaire);
+
+@couleur-1: fade(blue,75%);
+@couleur-2: fade(green,75%);
+@couleur-3: fade(red,75%);
+@couleur-4: transparent;
 /* pour le debuggage on met une bordure autour de chacun des éléments
 
 * {border: 1px solid #aaa;}
@@ -30,27 +23,23 @@
     justify-content: center;
 }
 
-body > .global:nth-child(odd){
-    background-color: black;
-}
-
-main > .global:nth-child(odd){
-   background-color: @couleur-base;
-}
-
-main > .global:nth-child(even){
-   background-color: @couleur-8;
+body > .global:nth-child(odd) {
+    background-color: fade(black,85%);
 }
 
 body {
     display: flex;
     flex-direction: column;
     font-family: arial;
+    background-image: url("../images/parcautomne.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    margin-bottom: 50em;
 }
 
 footer,
 header {
-    background-color: @couleur-contrast;
+    background-color: transparent;
 }
 
 header {
@@ -69,6 +58,7 @@ header {
             padding: 3px;
 
             li {
+                font-size: 0.9em;
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
@@ -107,53 +97,61 @@ header {
 }
 // fin header
 
-.global > section:first-of-type{
-   article:nth-child(1) {
-      background-color: @couleur-base;
-   }
-
-   article:nth-child(2) {
-      background-color: @triadic-1;
-   }
-
-   article:nth-child(3) {
-      background-color: @triadic-2;
-   }
-
-   article:nth-child(4) {
-      background-color: @triadic-1;
-   }
-
-   article:nth-child(5) {
-      background-color: @couleur-base;
-   }
-}
-
-.global > section:last-of-type{
-   article:nth-child(1) {
-      background-color: @couleur-8;
-   }
-
-   article:nth-child(2) {
-      background-color: @couleur-9;
-   }
-
-   article:nth-child(3) {
-      background-color: @couleur-10;
-   }
-
-   article:nth-child(4) {
-      background-color: @couleur-9;
-   }
-
-   article:nth-child(5) {
-      background-color: @couleur-8;
-   }
-}
-
 main {
     display: flex;
     flex-direction: column;
+
+    .global:nth-child(even) {
+        background-color: @couleur-1;
+
+        section {
+            article:nth-child(1) {
+                background-color: @couleur-4;
+            }
+
+            article:nth-child(2) {
+                background-color: @couleur-2;
+            }
+
+            article:nth-child(3) {
+                background-color: @couleur-3;
+            }
+
+            article:nth-child(4) {
+                background-color: @couleur-2;
+            }
+
+            article:nth-child(5) {
+                background-color: @couleur-4;
+            }
+        }
+    }
+
+    .global:nth-child(odd) {
+        background-color: @couleur-3;
+
+        section {
+            article:nth-child(1) {
+                background-color: @couleur-4;
+            }
+
+            article:nth-child(2) {
+                background-color: @couleur-1;
+            }
+
+            article:nth-child(3) {
+                background-color: @couleur-2;
+            }
+
+            article:nth-child(4) {
+                background-color: @couleur-1;
+            }
+
+            article:nth-child(5) {
+                background-color: @couleur-4;
+            }
+        }
+    }
 
     section {
         display: flex;
