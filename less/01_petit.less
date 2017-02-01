@@ -8,9 +8,9 @@
 @couleur-complementaire: spin(@couleur-base, 180); // @couleur-contrast : contrast(@couleur-base);
 @couleur-contrast: contrast(@couleur-base);
 
-@couleur-1: fade(blue,75%);
-@couleur-2: fade(green,75%);
-@couleur-3: fade(red,75%);
+@couleur-1: fade(lighten(blue,10%),75%);
+@couleur-2: fade(lighten(red,10%),75%);
+@couleur-3: fade(lighten(green,10%),75%);
 @couleur-4: transparent;
 /* pour le debuggage on met une bordure autour de chacun des éléments
 
@@ -24,7 +24,7 @@
 }
 
 body > .global:nth-child(odd) {
-    background-color: fade(black,85%);
+    background-color: fade(@couleur-contrast,85%);
 }
 
 body {
