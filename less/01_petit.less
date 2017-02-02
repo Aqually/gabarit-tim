@@ -1,13 +1,12 @@
 // main: style.less
 /* Variable */
-@import url('https://fonts.googleapis.com/css?family=Fira+Mono|Roboto+Condensed');
+@import url( 'https://fonts.googleapis.com/css?family=Fira+Mono|Roboto+Condensed');
 @largeur_article: 250px;
 @couleur-icone: #f9d42a;
 @couleur-lienMenu: #fff;
 @couleur-base: #e3d47f;
 @couleur-complementaire: spin(@couleur-base, 180); // @couleur-contrast : contrast(@couleur-base);
 @couleur-contrast: contrast(@couleur-base);
-
 @couleur-1: fade(lighten(blue,10%),75%);
 @couleur-2: fade(lighten(red,10%),75%);
 @couleur-3: fade(lighten(green,10%),75%);
@@ -167,9 +166,13 @@ main {
             justify-content: center;
             width: 100%;
             align-items: center;
-            height: @largeur_article;
-            // border: 1px solid #aaa;
+            height: @largeur_article; // border: 1px solid #aaa;
             font-size: @largeur_article;
+
+            img{
+               display: block;
+               width: 100%;
+            }
         }
     }
 }
