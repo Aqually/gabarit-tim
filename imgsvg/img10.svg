@@ -4,6 +4,4 @@
 
     <circle cx="65" cy="75" r="40" stroke="black" stroke-width="3" fill="blue" />
     <polyline points="0,34 43,44 41,87 20,40 60,120 320,620 20,60" style="fill:yellow;stroke:red;stroke-width:4" />
-
-
 </svg>
