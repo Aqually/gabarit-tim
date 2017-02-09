@@ -10,7 +10,6 @@ svg{
 }
 
 
-
 svg polyline,
 svg line,
 svg path {
@@ -22,26 +21,16 @@ svg path {
 }
 
 
-svg:hover{
-   stroke: #FFF;
-   stroke-width: 0.2px;
-   transition-duration: 0.5px;
-}
-
-
-.svg1 {
-   stroke: black;
-   stroke-width: 0.1px;
-}
-
-
 
 
 
 // TRANSITION
 
-svg-1:hover path {
+.svg-1:hover path {
   d: path("M8,2 L2,8");
+  stroke: #FFF;
+  stroke-width: 1px;
+
 }
 .svg-2:hover path {
   d: path("M2,2 L5,8 L8,2");
@@ -84,9 +73,64 @@ svg-1:hover path {
   100% { opacity: 0; }
 }
 
-
-.svg-6{
-   animation: anim6 2s ease;
+.svg-6 path{
+   stroke-dasharray: 0.5;
+   animation: anim6 1s linear;
    animation-iteration-count: infinite;
    animation-direction: alternate-reverse;
+}
+
+@keyframes anim7 {
+   0% {
+    stroke-width: 1
+  }
+  100%{
+     stroke-width: 0;
+ }
+}
+
+.svg-7 path{
+   stroke-dasharray: 0.5;
+   stroke-dashoffset: 2;
+   animation: anim7 2s linear;
+   animation-iteration-count: infinite;
+   animation-direction: alternate-reverse;
+}
+
+@keyframes anim8 {
+  to{
+     transform: rotate(-45deg);
+
+ }
+}
+
+.svg-8{
+   animation: anim8 2s ease;
+   animation-iteration-count: infinite;
+   animation-direction: alternate-reverse;
+}
+
+@keyframes anim9 {
+   to {
+      transform: scale(0.1);
+   }
+}
+
+.svg-9{
+   animation: anim9 2s ease;
+   animation-iteration-count: infinite;
+   animation-direction: alternate-reverse;
+}
+
+@keyframes anim10 {
+   to {
+     stroke-dashoffset: 0;
+   }
+}
+
+.svg-10 path{
+   stroke-dasharray: 10;
+   stroke-dashoffset: 100;
+   animation: anim10 5s linear forwards;
+   animation-iteration-count: infinite;
 }
